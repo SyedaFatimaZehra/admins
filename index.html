@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    body
+        {
+            width: 100%;
+            height: 1024px;
+            background-color: #e74c3c;
+            margin: 0 auto;
+        }
+        .box
+        {
+width: 400px;
+box-shadow: 0px 20px 65px black;
+margin: 20% 35%;
+padding: 2%;
+        }
+        #btn
+        {
+            background-color: aliceblue;
+           margin-left: 20%;
+           border-radius: none;
+           color: #e74c3c;
+
+        }
+        #author
+        {
+            padding-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p id="quote">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum minus aut sint dolorum labore tempore
+                vitae, atque fugit sequi magni quasi velit nemo, distinctio animi expedita voluptatem cupiditate, natus
+                nobis!</p>
+            <h3 id="author">lorem2</h3>
+            <button id="btn">get the quote</button>
+        </div>
+    </div>
+    <script>
+
+let quote=document.getElementById('quote');
+let author=document.getElementById('author');
+let btn=document.getElementById('btn');
+const url="https://api.quotable.io/random";
+let getQuote=()=>{
+fetch(url)
+.then((data)=>data.json())
+.then ((item)=>
+{
+quote.innerText=item.content;
+author.innerText=item.author;
+});
+};
+window.addEventListener("load",getQuote);
+btn.addEventListener("click",getQuote);
+
+
+
+
+    </script>
+</body>
+
+</html>
